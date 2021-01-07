@@ -2,8 +2,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  mode: process.env.NODE_ENV,
+  mode: "development",
   entry: "./src/index.jsx",
+  // sourceMap: true,
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "build.js",
@@ -26,6 +27,9 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
+    alias: {
+      "preact/hooks": "react",
+    },
   },
   devServer: {
     historyApiFallback: true,
